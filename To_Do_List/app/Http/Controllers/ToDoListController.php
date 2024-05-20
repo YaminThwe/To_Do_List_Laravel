@@ -11,13 +11,16 @@ class ToDoListController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $todolists = Todolist::all();
+        $todolists = ToDoList::all();
         $users = User::all();
-        return view('dashboard', compact('todolists','users'));
-        // $todolists = ToDolist::all();
-        // return response()->json($todolists);
+        
+        if ($request->expectsJson()) {
+            return response()->json($todolists);
+        }
+        
+        return view('dashboard', compact('todolists', 'users'));
     }
 
 
