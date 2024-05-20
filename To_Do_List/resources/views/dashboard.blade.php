@@ -23,22 +23,14 @@
         <div class="row">
             <form action="{{ route('store') }}" method="POST" class="form-input">
                 @csrf
+                
                 <div class="col-md-4">
-                    <label for="by" class="block text-gray-700 text-lg font-bold mb-2">By:</label>
-                    <select name="By" id="by" class="form-control">
-                        @foreach($users as $user)
-                            <option value="{{ $user->name }}">{{ $user->name }}</option>
-                        @endforeach
-                    </select>
-
-                    <br>
-
-                    <label for="to" class="block text-gray-700 text-lg font-bold mb-2">To:</label>
-                    <select name="To" id="to" class="form-control">
-                        @foreach($users as $user)
-                            <option value="{{ $user->name }}">{{ $user->name }}</option>
-                        @endforeach
-                    </select>
+                    <label for="To" class="block text-gray-700 text-lg font-bold mb-2">To</label>
+                    <input type="text" name="To" id="to" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label for="By" class="block text-gray-700 text-lg font-bold mb-2">By:</label>
+                    <input type="text" name="By" id="by" class="form-control">
                 </div>
 
                 <div class="col-md-4">
