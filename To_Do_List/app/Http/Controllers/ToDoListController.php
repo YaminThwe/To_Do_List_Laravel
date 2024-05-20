@@ -33,21 +33,13 @@ class ToDoListController extends Controller
         return back();
     }
 
-    public function show(ToDoList $toDoList)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(ToDolist $toDoList)
     {
         $toDoList -> delete();
         return back();
     }
-
-
-
- 
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ToDoList $toDoList)
-    {
-        //
-    }
+    
 }
