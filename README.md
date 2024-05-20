@@ -49,3 +49,23 @@ This is a simple To-Do List application built with Laravel as assignment purpose
 Run the following command to create the necessary database tables.
 ```sh
 php artisan migrate
+```
+
+## Create Model, Migration, and Controller
+Run the following command to create a model, migration, and controller for the ToDo list:
+```sh
+php artisan make:model ToDoList -mcr
+php artisan make:controller CustomAuthController
+```
+
+## Start the Development Server
+Run the following command to start the development server:
+```sh
+php artisan serve
+```
+## Testing the REST API Endpoint
+
+Using Postman
+Set the request type to GET.
+Enter the URL (http://localhost:8000).
+In the headers, add Accept: application/json.
