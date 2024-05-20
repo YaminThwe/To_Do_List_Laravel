@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ToDoList;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ToDoListController extends Controller
@@ -12,48 +13,35 @@ class ToDoListController extends Controller
      */
     public function index()
     {
-        //
+        $todolists = Todolist::all();
+        $users = User::all();
+        return view('dashboard', compact('todolists','users'));
+        // $todolists = ToDolist::all();
+        // return response()->json($todolists);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'By' => 'required',
+            'TaskName' => 'required',
+            'Deadline' => 'required',
+            'To' => 'required'
+        ]);
+        ToDolist::create($data);
+        return back();
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(ToDoList $toDoList)
     {
-        //
+        $toDoList -> delete();
+        return back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ToDoList $toDoList)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ToDoList $toDoList)
-    {
-        //
-    }
+
+ 
 
     /**
      * Remove the specified resource from storage.
