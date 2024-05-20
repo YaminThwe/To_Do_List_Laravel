@@ -14,13 +14,13 @@ class ToDoListController extends Controller
     public function index(Request $request)
     {
         $todolists = ToDoList::all();
-        $users = User::all();
+        // $users = User::all();
         
         if ($request->expectsJson()) {
             return response()->json($todolists);
         }
         
-        return view('dashboard', compact('todolists', 'users'));
+        return view('dashboard', compact('todolists'));
     }
 
 
